@@ -48,10 +48,10 @@ const MoviesGrid = (props) => {
 
     return (  
             <div className='movies-grid'>
-                <h2>Movies count: {movies.length} </h2>
-                {movies.map((el, i) => <MovieCard movieobj={el} key={i}/>)}
+                <h2 className='movies-grid__title'>Movies count: {movies.length} </h2>
+                {movies.map((el, i) => <div className ='grids-movie'><MovieCard movieobj={el} key={i}/></div>)}
                 {
-                    page < totalPage ? <button type='button' onClick={loadMore}>Load more</button> : ''
+                    page < totalPage ? <button type='button' className='grids-movie__btn' onClick={loadMore}>Load more</button> : ''
                 }
                 
             </div>

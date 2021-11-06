@@ -56,12 +56,12 @@ const Slider = () => {
                 <div className='discover'>
                     <img src={IMAGE_URL + el.poster_path} className='view-movie__image' />
                     <div className='discover-info'>
-                        <h2 className='discover-info__title' style={{ color: '#fff' }}>{el.title}</h2>
-                        <p className='discover-info__text'>{el.overview}</p>
+                        <h2 className='discover-info__title' style={{ color: '#fff',fontSize:'28px' }}>{el.title}</h2>
+                        <p className='discover-info__text' style={{ color: '#9cb6d6', fontSize:'18px' }}>{el.overview}</p>
                         
-                        {/* <div style={{ width: 40, height: 40, backgroundColor:'black',borderRadius:'50%', padding:'2px',marginBottom:'15px'}}>
+                        <div style={{ width: 40, height: 40, backgroundColor:'black',borderRadius:'50%', padding:'2px',marginBottom:'15px'}}>
                             <CircularProgressbar value={el.vote_average * 10} text={`${el.vote_average * 10}%`}  styles={buildStyles({ backgroundColor: '#d6d6d6'})}/>
-                        </div> */}
+                        </div>
                         {/* <div class="progress">
                             <span class="progress-bar" >{el.vote_average * 10} </span>
                         </div> */}

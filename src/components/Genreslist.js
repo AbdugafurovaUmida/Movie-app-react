@@ -32,8 +32,8 @@ const Genres = () => {
 
 
     const mappedGenres = genresList.map(el => (
-        <div className='catalog-aside' key={el.id}>
-            <NavLink activeClassName='active-genre' to ={`/catalog/${el.id}`}>{el.name}</NavLink>
+        <div className='catalog-aside' >
+            <NavLink activeClassName='active-genre'key={el.id} to ={`/catalog/${el.id}`}>{el.name}</NavLink>
         </div>
 
     )
