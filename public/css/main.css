@@ -390,6 +390,17 @@ body {
   color: #daa520;
 }
 
+.movies-wrapper{
+  width: 200px;
+  margin: 20px 25px;
+}
+
+.searched-movies{
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* ***** GENRESLIST COMPONENT ***** */
 
 .genres {

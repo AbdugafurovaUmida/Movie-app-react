@@ -25,28 +25,6 @@ const SIMILAR_API = `https://api.themoviedb.org/3/movie/`
 const SIMILAR_API_PARAMS = `/similar?api_key=${MY_API_KEY}`
 
 
-
-
-// function HomeButton() {
-
-
-
-//   return (
-//     <button type="button" onClick={handleClick}>
-//       Go home
-//     </button>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
 const ViewMovie = () => {
 
 
