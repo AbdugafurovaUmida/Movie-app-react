@@ -1,11 +1,8 @@
 import React from 'react';
 import Select from "react-select";
 import { useState, useEffect } from "react";
-import { MY_API_KEY } from "../global";
 import MovieCard from './MovieCard';
-
-const API_PARAMS = `?api_key=${MY_API_KEY}&language=en-US`;
-const GENRES = `https://api.themoviedb.org/3/genre/movie/list${API_PARAMS}`;
+import apiCalls from '../config/Api';
 
 
 const BigFilter = () => {
@@ -15,36 +12,29 @@ const BigFilter = () => {
     const [genre, setGenre] = useState('');
     const [genreList, setGenreList] = useState([]);
 
-    const SORT_BY_ALL = `https://api.themoviedb.org/3/discover/movie?api_key=${MY_API_KEY}&language=en-US&sort_by=${sort}.desc&include_adult=false&page=1&year=${year}&with_genres=${genre}`;
-
     const [error, setError] = useState();
 
     useEffect(() => {
-        fetch(GENRES)
-            .then((res) => {
-                if (!res.ok) {
-                    throw Error("Serverda ma'lumot olishda xatolik!!");
-                }
-                return res.json();
-            })
-            .then((data) => {
-                console.log(data);
+
+        const getGenres = async () => {
+            try {
+                const data = await apiCalls.genre();
                 setGenreList(data.genres);
-            })
-            .catch((err) => {
-                setError(err.message);
-            });
+            } catch (error) {
+                setError(error.message)
+            }
+        }
+
+        getGenres();
+
     }, []);
 
 
-    const handleGenreChange = (newValue) => {
-        console.log(newValue);
-        const mappedGenre = newValue.map((el) => el.value);
-        // men tanlayotgan janrlarimni olib join qilib beradi
+    const handleGenreChange = (obj) => {
+        console.log(obj);
+        const mappedGenre = obj.map((el) => el.value);
         console.log(mappedGenre);
         setGenre(`${mappedGenre}`);
-        // setGenre(mappedGenre.join(','));
-        // console.log(setGenre(mappedGenre.join('')))
         console.log(`${mappedGenre}`)
     };
 
@@ -69,9 +59,9 @@ const BigFilter = () => {
     ];
 
 
-    const handleYearChange = (newValue) => {
-        setYear(newValue.value);
-        console.log(newValue);
+    const handleYearChange = (obj) => {
+        setYear(obj.value);
+        console.log(obj.value);
     };
 
 
@@ -87,9 +77,9 @@ const BigFilter = () => {
     ];
 
 
-    const handleSortChange = (newValue) => {
-        setSort(newValue.value);
-        console.log(newValue);
+    const handleSortChange = (obj) => {
+        setSort(obj.value);
+        console.log(obj.value);
     };
 
     //   =================================
@@ -98,22 +88,28 @@ const BigFilter = () => {
     const [discover, setDiscover] = useState([]);
 
     const handleDiscover = () => {
-        fetch(SORT_BY_ALL)
-            .then((res) => {
-                if (!res.ok) {
-                    throw Error("Serverda ma'lumot olishda xatolik!!");
-                }
-                return res.json();
-            })
-            .then((data) => {
-                console.log(data);
-                setDiscover(data.results);
 
+
+        const discover = async () => {
+            try {
+                const data = await apiCalls.discover({
+                    language: "en-US",
+                    include_adult: false,
+                    with_genres: genre,
+                    sort_by: sort,
+                    page: 1,
+                    year: year
+                })
+                setDiscover(data.results);
                 setTotal(data.total_results);
-            })
-            .catch((err) => {
-                setError(err.message);
-            });
+
+            } catch (error) {
+                setError(error.message);
+            }
+        }
+
+        discover();
+
     };
 
     return (
@@ -140,16 +136,15 @@ const BigFilter = () => {
 
                 </div>
             </form>
-<div className='container'>
-            <div className='searched-movies'>
-                
-                    {
+            <div className='container'>
+                <div className='searched-movies'>
+                    {error ? <p className='error'>{error}</p> :
                         discover.map((el) => (
                             <div className="movies-wrapper">
                                 <MovieCard movieobj={el} key={el.id} />
                             </div>
-                        ))
-                    }
+                        ))}
+
                 </div>
 
             </div>

@@ -9,7 +9,6 @@ const MovieCard = ({ movieobj }) => {
             <div className='movie__info'>
                 <h2 className='movie__title'>{movieobj.title ? movieobj.title : movieobj.name}</h2>
             </div>
-            {/* <Link to={`/movie/${movieobj.id}`}>View this movie</Link> */}
         </Link>
     )
 }

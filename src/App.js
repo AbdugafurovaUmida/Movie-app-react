@@ -1,8 +1,7 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  // Link
+  Route
 } from "react-router-dom";
 import 'swiper/swiper.min.css';
 import 'antd/dist/antd.css';
@@ -13,8 +12,6 @@ import ViewMovie from "./pages/ViewMovie";
 import Catalog from "./pages/Catalog";
 import Search from "./pages/Search";
 import ScrollToTop from "./components/ScrollToTop";
-
-// import 'swiper/swiper-bundle.css'
 
 
 

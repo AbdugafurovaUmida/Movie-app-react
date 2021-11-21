@@ -9,6 +9,7 @@
     "antd": "^4.16.13",
     "react": "^17.0.2",
     "react-animated-progress-bar": "^1.0.4",
+    "react-burger-menu": "^3.0.6",
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^17.0.2",
     "react-perfect-scrollbar": "^1.5.8",

@@ -1,0 +1,384 @@
+@media (max-width:1300px) {
+    .container {
+        max-width: 1199px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .discover__image {
+        max-height: 500px;
+    }
+
+    .mapped-actors {
+        width: 100%;
+    }
+    .similars{
+        margin: 0 0 10px 0;
+        
+        
+    }
+    .mapped-similar{
+        justify-content: center;
+    }
+}
+
+@media (max-width:1199px) {
+    .container {
+        max-width: 1199px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .movie__image {
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .discover-info__link {
+        width: 18%;
+        padding: 0px 4px;
+
+    }
+
+    .discover-info__title {
+        font-size: 18px;
+    }
+
+    .intro__title {
+        font-size: 36px;
+    }
+
+    .intro__text {
+        font-size: 24px;
+    }
+
+    .view-movie__title {
+        font-size: 22px !important;
+    }
+
+
+.mapped-actors {
+    width: 100%;
+}
+
+.view-movie__info small{
+    display: none;
+}
+
+.view-movie__time{
+    padding-left: 10px;
+}
+.similars__title{
+    font-size: 18px;
+}
+
+
+}
+
+
+
+@media (max-width:991px) {
+    .discover-info__link {
+        width: 25%;
+        padding: 0px 4px !important;
+    }
+    .view-movie__genres span{
+        font-size: 14px;
+    }
+    .movie__image{
+          height: 190px;
+    }
+    .actors-page__title, .similar-page__title{
+        font-size: 20px;
+    }
+    .actors-page{
+        padding: 50px 0;
+    }
+    .actors{
+        max-height: 250px;
+       
+    }
+    .actors__image{
+        object-fit: cover;
+        height: 100%;
+    }
+  
+}
+
+@media (max-width:900px) {
+    .discover__image {
+        display: none;
+    }
+
+    .discover-info {
+        text-align: center;
+    }
+
+    .CircularProgressbar,
+    .circular-progress-content {
+        display: none !important;
+    }
+
+    .discover-info__link {
+        margin: 0 auto;
+    }
+    .view-movie__description{
+        letter-spacing: 0;
+        font-size: 16px;
+    }
+    .mapped-actors{
+        height: auto;
+        padding-bottom: 80px ;
+    }
+    .similars{
+        max-width: 180px ;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .mapped-similar{
+        justify-content: center;
+    }
+
+}
+
+@media (max-width:767px) {
+    .navigation {
+        display: block !important;
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .nav-bar {
+        padding-left: 0;
+    }
+
+    .navbar-brand {
+        font-size: 26px;
+    }
+
+    .Intro {
+        padding: 40px 0;
+    }
+
+    .main__link {
+        padding: 0.150rem 0.30rem;
+        font-size: 18px;
+    }
+
+    .discover-info__title {
+        font-size: 20px !important;
+    }
+
+    .discover-info__text {
+        letter-spacing: 0;
+    }
+
+    .discover-info__link {
+        font-size: 14px;
+        width: 25%;
+    }
+    .ant-tabs-tab{
+        font-size: 15px !important;
+    }
+    .progress-bar{
+        display: none;
+    }
+    .view-movie__text{
+        font-size: 19px;
+        text-align: center;
+    }
+    .view-movie__image{
+        display: none;
+    }
+    .view-movie__time{
+        font-size: 16px;
+        display: block;
+    }
+    .view-movie__description{
+        text-align: center;
+    }
+    .hamburger{
+        right:20px;
+    }
+    .navbar-brand{
+        font-size: 20px;
+    }
+
+    .actors__title{
+        font-size: 16px;
+    }
+    .actors{
+        width: 180px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .similars__image{
+        max-height: 180px;
+        object-fit: cover;
+    }
+    .similars__title{
+        font-size: 16px;
+    }
+    .hamburger{
+        z-index: 333;
+    }
+
+}
+
+
+@media (max-width:565px) {
+    .discover-info {
+        width: 100%;
+    }
+
+    .discover-slide {
+        padding: 0;
+    }
+
+    .intro__title {
+        font-size: 26px;
+    }
+
+    .intro__text {
+        font-size: 16px;
+    }
+
+    .discover-info__title {
+        font-size: 18px !important;
+    }
+
+    .discover-info__text {
+        font-size: 14px !important;
+    }
+
+    .discover-info__link {
+        width: 16%;
+        font-size: 12px;
+    }
+    .grids-movie{
+       display: flex;
+       justify-content: center;
+    }
+
+    .big-search__title{
+      font-size: 18px;
+    }
+
+    .big-filter__title{
+        font-size: 16px;
+    }
+
+    .filter-bottom-blog__title, .filter-bottom-blog__text{
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .filter-bottom-blog__btn{
+        font-size: 14px;
+    }
+    .big-search__input{
+ font-size: 14px;
+    }
+    .view-movie__description{
+display: none;
+    }
+    .view-movie__text{
+        display: none;
+    }
+    .view-movie__title{
+        font-size: 17px !important;
+    }
+    .view-movie__genres span{
+        font-size: 12px;
+    }
+    .view-movie__time{
+        margin-top: 10px;
+    }
+    .actors-page__title, .similar-page__title{
+        text-align: center;
+        font-size: 18px;
+    }
+    .actors__title{
+        font-size: 14px;
+    }
+    .actors__text{
+        font-size: 12px;
+    }
+    .similars__title {
+        font-size: 14px;
+    }
+}
+
+@media (max-width:480px) {
+    .ant-tabs>.ant-tabs-nav .ant-tabs-nav-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ant-tabs-tab {
+        margin: 0 0 0 0 !important;
+    }
+
+    .ant-tabs-tab{
+        font-size: 12px !important;
+    }
+
+    .ant-tabs-ink-bar {
+        background-color: transparent !important;
+    }
+
+    .movie__image {
+        min-width: 30px;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .ant-tabs-tab {
+        font-size: 16px;
+    }
+
+    .main__link {
+        font-size: 16px;
+    }
+
+    .toggle-btn{
+        vertical-align: top;
+    }
+
+    .grids-movie{
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    .movies-grid__title{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .catalog-aside__link{
+        font-size: 14px;
+    }
+    .showMenu{
+        width: 200px;
+        z-index: 333;
+        text-align: center;
+    }
+    .hamburger-menu{
+        padding: 0;
+    }
+    .view-movie__genres{
+        display: none;
+    }
+    .swiper-slide{
+        text-align: center;
+    }
+}

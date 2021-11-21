@@ -1,9 +1,10 @@
-import { MY_API_KEY } from '../global';
+
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import apiCalls from '../config/Api';
 
 
-const GENRES_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${MY_API_KEY}&language=en-US`;
+
 
 
 const Genres = () => {
@@ -12,28 +13,26 @@ const Genres = () => {
     const [error, setError] = useState();
 
     useEffect(() => {
-        fetch(GENRES_API)
-            .then(res => {
-                if (!res.ok) {
-                    throw Error('serverdan malumot olishda xatolik')
-                }
-                return res.json()
-            })
-            .then(data => {
-                console.log(data)
+
+        const getGenres = async () => {
+            try{
+                const data = await apiCalls.genre({
+
+                });
                 setGenresList(data.genres);
-            })
-            .catch((err) => {
-                setError(err.message)
-                // console.log(err.message)
-            });
+            } catch (error) {
+                setError(error.message);
+            }
+        }
+
+        getGenres();
 
     }, []);
 
 
     const mappedGenres = genresList.map(el => (
         <div className='catalog-aside' >
-            <NavLink activeClassName='active-genre'key={el.id} to ={`/catalog/${el.id}`}>{el.name}</NavLink>
+            <NavLink activeClassName='active-genre'  className='catalog-aside__link' key={el.id} to ={`/catalog/${el.id}`}>{el.name}</NavLink>
         </div>
 
     )
@@ -42,7 +41,8 @@ const Genres = () => {
 
         return(
             <div className ='genres'>
-                {mappedGenres}
+                 {error ? <p className='error'>{error}</p> :  mappedGenres }
+                
             </div>
         )
 

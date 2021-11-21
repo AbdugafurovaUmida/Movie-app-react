@@ -1,19 +1,11 @@
 import React from 'react'
-import Movie from './MovieCard';
 import Loader from '../components/Loader';
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
-
-import { MY_API_KEY } from '../global';
 import MovieCard from './MovieCard';
+import apiCalls from '../config/Api';
 
-
-
-// const TRENDING_MOVIES_API = `https://api.themoviedb.org/3/trending/all/day?api_key=${MY_API_KEY}`;
-// const POPULAR_MOVIES_API = `https://api.themoviedb.org/3/movie/popular?api_key=${MY_API_KEY}`;
-// const UPCOMING_MOVIES_API = `https://api.themoviedb.org/3/movie/upcoming?api_key=${MY_API_KEY}`;
-// const TOP_MOVIES_API = `https://api.themoviedb.org/3/movie/top_rated?api_key=${MY_API_KEY}`;
 
 
 const Movielist = ({type,title}) => {
@@ -25,25 +17,20 @@ const Movielist = ({type,title}) => {
 
 
     useEffect(() => {
-        setTimeout(() => {
-            fetch(`https://api.themoviedb.org/3/movie/${type}?api_key=${MY_API_KEY}`)
-                .then(res => {
-                    if (!res.ok) {
-                        throw Error('serverdan malumot olishda xatolik')
-                    }
-                    return res.json()
-                })
-                .then(data => {
-                    setMoviesList(data.results);
-                    //  console.log(data.results)
-                    setIsLoading(false);
-                })
-                .catch((err) => {
-                    setIsLoading(false);
-                    setError(err.message)
-                    // console.log(err.message)
-                });
-        }, 2000)
+        
+        const getMovies = async () => {
+            try{
+                const data = await apiCalls.getMovies(type);
+                setMoviesList(data.results);
+                setIsLoading(false);
+            } catch (error) {
+                setError(error.message);
+            }
+        }
+
+        getMovies();
+
+        
     }, []);
 
     return (
@@ -54,11 +41,45 @@ const Movielist = ({type,title}) => {
               
                 {error ? <p className='error'>{error}</p> : ''}
                 {isLoading ? <Loader /> : ''}
-                {!isLoading && !error ? <Swiper modules = {[Autoplay]} spaceBetween={30} slidesPerView={7}
+                {!isLoading && !error ? <Swiper
+                 modules = {[Autoplay]} 
+                 spaceBetween={30} 
+                 slidesPerView={7}
                 autoplay={{
                     delay: 2000, 
                     disableOnInteraction: false
-                }}>
+                }}
+                breakpoints={{
+                    "200": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 10
+                      },
+                    "320": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 10
+                      },
+                    "400": {
+                        "slidesPerView": 2,
+                        "spaceBetween": 0
+                      },
+                    "640": {
+                      "slidesPerView": 3,
+                      "spaceBetween": 30
+                    },
+                    "768": {
+                      "slidesPerView": 4,
+                      "spaceBetween": 40
+                    },
+                    "991": {
+                        "slidesPerView": 5,
+                        "spaceBetween": 30
+                      },
+                    "1199": {
+                        "slidesPerView": 7,
+                        "spaceBetween": 30
+                      }
+                  }}
+                >
                 {moviesList.map(el => ( <SwiperSlide><MovieCard movieobj={el} key={el.id} /></SwiperSlide> ))} </Swiper> : ''}
         </div>
     )
