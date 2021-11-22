@@ -22,12 +22,12 @@ const MoviesGrid = (props) => {
     useEffect(() => {
         let list;
         console.log(prevGenre, props.genre)
-        if (prevGenre != props.genre) {
+        if (prevGenre !== props.genre) {
             list = [];
         } else {
             list = movies;
         }
-        if (props.genre == undefined) {
+        if (props.genre === undefined) {
 
             const getGenresMovies = async () => {
                 try {
@@ -60,7 +60,7 @@ const MoviesGrid = (props) => {
             getGenres()
 
         }
-    }, [props.genre, page]);
+    }, [props.genre, page, movies, prevGenre]);
 
 
     return (

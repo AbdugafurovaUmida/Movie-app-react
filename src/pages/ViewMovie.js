@@ -167,7 +167,7 @@ const ViewMovie = () => {
                 <SingleMovie className='single-movie'>
                     <InnerContent className='inner-content'>
                         <ContentImg>
-                            <img src={IMAGE_URL + movieInfo.poster_path} style={{ maxHeight: '500px', borderRadius: '6px', marginTop: '10px' }} className='view-movie__image' alt='single-image' />
+                            <img src={IMAGE_URL + movieInfo.poster_path} style={{ maxHeight: '500px', borderRadius: '6px', marginTop: '10px' }} className='view-movie__image' alt='single' />
                             <Progress><ProgressBar width="150" trackWidth="13" percentage={movieInfo.vote_average * 10} /></Progress>
                         </ContentImg>
 

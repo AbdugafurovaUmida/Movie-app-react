@@ -31,7 +31,7 @@ const Movielist = ({type,title}) => {
         getMovies();
 
         
-    }, []);
+    }, [type]);
 
     return (
         <div className = 'container'>
