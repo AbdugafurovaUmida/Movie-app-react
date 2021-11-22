@@ -161,12 +161,14 @@ const ViewMovie = () => {
     
 
     return (
-        <div>
+        <>
+        {error ? <p className='error'>{error}</p> :  
+          <div>
             <Backdrop className='view-movie' style={{ backgroundImage: `url(${ORIGINAL_IMAGE_URL + movieInfo.backdrop_path})`,backgroundPosition:'center center' }}>
                 <SingleMovie className='single-movie'>
                     <InnerContent className='inner-content'>
                         <ContentImg>
-                            <img src={IMAGE_URL + movieInfo.poster_path} style={{ maxHeight: '500px', borderRadius: '6px', marginTop: '10px' }} className='view-movie__image' />
+                            <img src={IMAGE_URL + movieInfo.poster_path} style={{ maxHeight: '500px', borderRadius: '6px', marginTop: '10px' }} className='view-movie__image' alt='single-image' />
                             <Progress><ProgressBar width="150" trackWidth="13" percentage={movieInfo.vote_average * 10} /></Progress>
                         </ContentImg>
 
@@ -204,8 +206,10 @@ const ViewMovie = () => {
                     </div>
                 </div>
             </div>
-                <button className='view-movie__btn' onClick={handleClick}> <i class="fas fa-long-arrow-alt-left"></i>Back</button>
-        </div>
+                <button className='view-movie__btn' onClick={handleClick}> <i className="fas fa-long-arrow-alt-left"></i>Back</button>
+        </div>}
+     
+        </>
     )
 }
 

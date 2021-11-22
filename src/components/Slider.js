@@ -48,7 +48,7 @@ const Slider = () => {
         <SwiperSlide key={el.id}>
             <DiscoverSlide className='discover-slide' style={{ backgroundImage: `url(${ORIGINAL_IMAGE_URL + el.backdrop_path})` }}>
                 <div className='discover'>
-                    <img src={IMAGE_URL + el.poster_path} className='discover__image' />
+                    <img src={IMAGE_URL + el.poster_path} className='discover__image' alt='discover-image'/>
                     <div className='discover-info'>
                         <h2 className='discover-info__title' style={{ color: '#fff',fontSize:'28px' }}>{el.title}</h2>
                         <p className='discover-info__text' style={{ color: '#9cb6d6', fontSize:'18px' }}>{el.overview}</p>

@@ -131,7 +131,7 @@ const BigFilter = () => {
                         <span className='filter-bottom-blog__text'>   movies {" "}</span>
                     </div>
                     <button className='filter-bottom-blog__btn' type="button" onClick={handleDiscover}>
-                        <i class="fas fa-search"></i>
+                        <i className="fas fa-search"></i>
                         Search</button>
 
                 </div>
