@@ -141,7 +141,6 @@ const ViewMovie = () => {
     @media only screen and (max-width:767px){
         margin-top: 50px;
     }
-
     `
 
     const mappedActors = actorsInfo.map((el) => {
