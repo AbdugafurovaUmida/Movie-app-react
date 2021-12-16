@@ -60,7 +60,9 @@ const MoviesGrid = (props) => {
             getGenres()
 
         }
-    }, [props.genre, page, movies, prevGenre]);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.genre, page]);
 
 
     return (
